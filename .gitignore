@@ -1,5 +1,24 @@
+# Node / Next.js
 node_modules/
 .next/
+.open-next/
 out/
-.env*.local
+
+# Env files (never commit local secrets)
+.env
+.env.local
+.env.*.local
+
+# Test artifacts
+test-results/
+playwright-report/
+
+# Python / Django (harmless no-ops here — present for cross-template parity)
+__pycache__/
+staticfiles/
+
+# Terraform (harmless no-op here — present for cross-template parity)
+*.tfstate*
+
+# Editor / OS
 .DS_Store

@@ -1,0 +1,27 @@
+# =============================================================================
+# Frontend dev container
+# =============================================================================
+# Used by template-be-app/docker-compose.yml's `frontend` service under the
+# `full` profile. Run from the sibling backend/ directory:
+#
+#   cd <app>/backend
+#   docker compose --profile full up
+#
+# Host-only dev (no container) still works via `npm run dev` from this repo.
+# =============================================================================
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install deps first for cache friendliness. package-lock.json may or may not
+# exist on a fresh clone; the glob handles both cases.
+COPY package.json package-lock.json* ./
+RUN npm install
+
+# Source comes in via the compose bind mount at runtime, but we also COPY here
+# so `docker build` on its own produces a functional image.
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev"]
