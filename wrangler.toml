@@ -1,7 +1,7 @@
 # Cloudflare Workers configuration for Next.js app deployed via @opennextjs/cloudflare.
 # Run `npm run cf:build` then `npx wrangler deploy` (or `npm run cf:deploy`).
 
-name = "CHANGE_ME"
+name = "template-fe-app" # <-- rename per app (lowercase, dashes only)
 main = ".open-next/worker.js"
 compatibility_date = "2024-12-01"
 compatibility_flags = ["nodejs_compat"]
@@ -16,10 +16,10 @@ binding = "ASSETS"
 #   npx wrangler secret put AUTH0_SECRET
 #   npx wrangler secret put AUTH0_CLIENT_SECRET
 [vars]
-NEXT_PUBLIC_API_BASE_URL = "https://CHANGE_ME-api.example.com/api/v1"
+NEXT_PUBLIC_API_BASE_URL = "https://api.example.com/api/v1"
 
 # Custom domain binding — Workers will respond to this hostname.
 # Requires API Token permission: Zone > Workers Routes > Edit.
 # [[routes]]
-# pattern = "CHANGE_ME.example.com"
+# pattern = "app.example.com"
 # custom_domain = true

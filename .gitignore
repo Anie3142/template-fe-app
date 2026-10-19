@@ -18,7 +18,13 @@ __pycache__/
 staticfiles/
 
 # Terraform (harmless no-op here — present for cross-template parity)
+.terraform/
 *.tfstate*
+
+# Cloudflare / TypeScript build artefacts
+.wrangler/
+.dev.vars
+*.tsbuildinfo
 
 # Editor / OS
 .DS_Store
